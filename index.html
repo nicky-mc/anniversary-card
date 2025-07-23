@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alles Liebe zum Jahrestag</title>
+    <meta name="google" content="notranslate">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* A few custom styles for the 3D effect not included in the base Tailwind CDN */
+        .perspective {
+            perspective: 1000px;
+        }
+        .card {
+            transform-style: preserve-3d;
+            transition: transform 1s;
+        }
+        .card.is-flipped {
+            transform: rotateY(180deg);
+        }
+        .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden; /* This hides the back of the element when it's facing away from the screen */
+        }
+        .card-back {
+            transform: rotateY(180deg);
+        }
+        /* Style to hide the modal by default */
+        .modal-hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-rose-50 min-h-screen flex flex-col items-center justify-center p-4 font-sans">
+
+    <div class="text-center mb-8">
+        <h1 class="text-3xl md:text-4xl font-bold text-rose-800" lang="de" translate="no">Ein kleiner Gruß zum Jahrestag...</h1>
+        <p class="text-rose-600 mt-2" lang="de" translate="no">(Klick die Karte an, um sie zu öffnen)</p>
+    </div>
+
+    <div class="perspective w-full max-w-md h-[500px] md:w-[400px]">
+        <div id="card" class="card relative w-full h-full cursor-pointer">
+            
+            <div class="card-face card-front bg-white rounded-lg shadow-xl p-6 flex flex-col justify-between">
+                <div class="text-center">
+                    <h2 class="text-2xl font-bold text-gray-800" lang="de" translate="no">Für meine wundervolle Frau</h2>
+                    <div class="w-20 h-1 bg-rose-300 mx-auto my-3 rounded-full"></div>
+                </div>
+
+                <div class="flex-grow flex flex-col gap-4 justify-center items-center p-4">
+                    <img src="images/photo1.jpg" alt="A lovely photo of us" class="w-full h-40 object-cover rounded-lg shadow-md">
+                    <div class="flex gap-4 w-full">
+                        <img src="images/photo2.jpg" alt="A happy memory" class="w-1/2 h-32 object-cover rounded-lg shadow-md">
+                        <img src="images/photo3.png" alt="Another great photo" class="w-1/2 h-32 object-cover rounded-lg shadow-md">
+                    </div>
+                </div>
+                <div class="text-center">
+                    <p class="text-lg font-semibold text-rose-500" lang="de" translate="no">Ich liebe dich</p>
+                </div>
+            </div>
+
+            <div class="card-face card-back bg-rose-100 rounded-lg shadow-xl p-8 flex flex-col justify-center text-gray-800">
+                <h3 class="text-2xl font-bold text-rose-800 mb-4" lang="de" translate="no">An meine liebste Bananenbiegerin,</h3>
+                
+                <p class="mb-4" lang="de" translate="no">
+                    Heute feiern wir zwei Jahre Ehe, und mein Herz ist immer noch, und jeden Tag mehr, voller Liebe für dich. Es fühlt sich an wie ein wunderschöner Traum, aus dem ich nie aufwachen möchte.
+                </p>
+                
+                <p class="mb-4" lang="de" translate="no">
+                    Durch dich habe ich gelernt, dass ich nicht perfekt sein muss. Ich muss einfach nur ich selbst sein – mein bestes, authentisches Ich. Du gibst mir den Mut, verletzlich zu sein und die Freiheit, ganz und gar die Person zu sein, die ich bin.
+                </p>
+                
+                <p class="mb-4" lang="de" translate="no">
+                    Dein Lachen ist meine Lieblingsmelodie. Du bringst mich zum Lachen wie niemand sonst – dieses tiefe, laute, unkontrollierbare Lachen, das direkt aus der Seele kommt. Jeder Tag mit dir ist ein Abenteuer.
+                </p>
+                
+                <p class="font-bold mt-4" lang="de" translate="no">
+                    Ich liebe dich, für immer und ewig. Auf viele weitere Jahre voller Lachen, Liebe und gemeinsamer Abenteuer.
+                </p>
+
+                <p class="text-right mt-6 font-semibold text-rose-700" lang="de" translate="no">
+                    In ewiger Liebe,<br>
+                    Dein Butt Butt
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <button id="openModalBtn" class="mt-8 bg-white border border-rose-200 text-rose-700 font-semibold py-2 px-4 rounded-lg shadow hover:bg-rose-100 transition-colors flex items-center gap-2">
+        <span class="text-rose-500">❤️</span> Forgot your German? Click here.
+    </button>
+    <div id="translationModal" class="modal-hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-center items-center p-4">
+        <div class="bg-white rounded-lg shadow-2xl p-6 md:p-8 max-w-2xl w-full relative">
+            <button id="closeModalBtn" class="absolute top-4 right-4 text-gray-400 hover:text-gray-800 text-2xl">&times;</button>
+            
+            <h2 class="text-2xl font-bold text-rose-800 mb-4">English Translation</h2>
+            
+            <div class="text-gray-700 space-y-3 max-h-[70vh] overflow-y-auto pr-2">
+                <p><strong>Front of Card:</strong></p>
+                <ul class="list-disc list-inside bg-gray-50 p-3 rounded-md">
+                    <li>For my wonderful wife</li>
+                    <li>I love you</li>
+                </ul>
+                
+                <p class="mt-4"><strong>Back of Card:</strong></p>
+                <div class="bg-rose-50 p-4 rounded-md space-y-3">
+                    <p class="font-bold">To my dearest Banana-Bender,</p>
+                    <p>
+                        Today we celebrate two years of marriage, and my heart is still, and every day more, full of love for you. It feels like a beautiful dream from which I never want to wake up.
+                    </p>
+                    <p>
+                        Through you, I have learned that I don't have to be perfect. I just have to be myself—my best, authentic self. You give me the courage to be vulnerable and the freedom to be entirely the person I am.
+                    </p>
+                    <p>
+                        Your laughter is my favorite melody. You make me laugh like no one else—that deep, loud, uncontrollable laughter that comes directly from the soul. Every day with you is an adventure.
+                    </p>
+                    <p class="font-bold">
+                        I love you, forever and always. To many more years of laughter, love, and shared adventures.
+                    </p>
+                    <p class="text-right font-semibold text-rose-700">
+                        In eternal love,<br>
+                        Your Butt Butt
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // --- Existing code for the card flip ---
+        const card = document.getElementById('card');
+        card.addEventListener('click', function() {
+            card.classList.toggle('is-flipped');
+        });
+
+        // --- NEW code for the translation modal ---
+        const openModalBtn = document.getElementById('openModalBtn');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        const translationModal = document.getElementById('translationModal');
+
+        openModalBtn.addEventListener('click', () => {
+            translationModal.classList.remove('modal-hidden');
+        });
+
+        closeModalBtn.addEventListener('click', () => {
+            translationModal.classList.add('modal-hidden');
+        });
+
+        // Optional: Close the modal if the user clicks on the background overlay
+        window.addEventListener('click', (event) => {
+            if (event.target === translationModal) {
+                translationModal.classList.add('modal-hidden');
+            }
+        });
+    </script>
+
+</body>
+</html>
