@@ -17,23 +17,28 @@
 
     <div class="perspective w-full max-w-md h-[500px] md:w-[400px]">
         <div id="card" class="card relative w-full h-full cursor-pointer">
-            <div class="card-face card-front bg-white rounded-lg shadow-xl p-6 flex flex-col justify-between">
-                <div class="text-center">
+            <div class="card-face card-front bg-white rounded-lg shadow-xl p-6 flex flex-col h-full">
+                <div class="text-center flex-shrink-0">
                     <h2 class="text-2xl font-bold text-gray-800">Für meine wundervolle Frau</h2>
                     <div class="w-20 h-1 bg-rose-300 mx-auto my-3 rounded-full"></div>
                 </div>
-                <div class="flex-grow flex flex-col gap-4 justify-center items-center p-4">
-                    <img src="images/photo1.jpg" alt="A lovely photo of us" class="w-full h-40 object-cover rounded-lg shadow-md">
-                    <div class="flex gap-4 w-full">
-                        <img src="images/photo2.jpg" alt="A happy memory" class="w-1/2 h-32 object-cover rounded-lg shadow-md">
-                        <img src="images/photo3.png" alt="Another great photo" class="w-1/2 h-32 object-cover rounded-lg shadow-md">
+
+                <div class="flex-grow overflow-y-auto my-4 custom-scrollbar pr-2">
+                    <div class="flex flex-col gap-4 items-center">
+                        <img src="images/photo1.jpg" alt="A lovely photo of us" class="w-full h-40 object-cover rounded-lg shadow-md flex-shrink-0">
+                        <div class="flex gap-4 w-full flex-shrink-0">
+                            <img src="images/photo2.jpg" alt="A happy memory" class="w-1/2 h-32 object-cover rounded-lg shadow-md">
+                            <img src="images/photo3.png" alt="Another great photo" class="w-1/2 h-32 object-cover rounded-lg shadow-md">
+                        </div>
                     </div>
                 </div>
-                <div class="text-center">
+
+                <div class="text-center flex-shrink-0">
                     <p class="text-lg font-semibold text-rose-500">Ich liebe dich</p>
                 </div>
             </div>
-            <div class="card-face card-back bg-rose-100 rounded-lg shadow-xl p-8 flex flex-col text-gray-800 overflow-y-auto">
+            
+            <div class="card-face card-back bg-rose-100 rounded-lg shadow-xl p-8 flex flex-col text-gray-800 overflow-y-auto custom-scrollbar">
                 <h3 class="text-2xl font-bold text-rose-800 mb-4">An meine liebste Bananenbiegerin,</h3>
                 <p class="mb-4">Heute feiern wir zwei Jahre Ehe, und mein Herz ist immer noch, und jeden Tag mehr, voller Liebe für dich. Es fühlt sich an wie ein wunderschöner Traum, aus dem ich nie aufwachen möchte.</p>
                 <p class="mb-4">Durch dich habe ich gelernt, dass ich nicht perfekt sein muss. Ich muss einfach nur ich selbst sein – mein bestes, authentisches Ich. Du gibst mir den Mut, verletzlich zu sein und die Freiheit, ganz und gar die Person zu sein, die ich bin.</p>

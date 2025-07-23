@@ -17,3 +17,17 @@
 .card-back {
     transform: rotateY(180deg);
 }
+
+/* UPDATED: Generic custom scrollbar style for any element that needs it */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #be123c; /* A nice rose color */
+  border-radius: 20px;
+}
